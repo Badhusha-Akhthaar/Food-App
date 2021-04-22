@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>New Post</h2>
 <div mat-dialog-content>
-    <form [formGroup]="newPostForm" (ngSubmit)="onSubmitNewPost(f)" #f>
+    <form [formGroup]="newPostForm" (ngSubmit)="onSubmitNewPost(f)" #f="ngForm">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="postType">Post Type</label>
@@ -32,7 +32,7 @@
             <div class="form-group col-md-12">
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="recurrs" required
-                        (click)="checkIfRecurrs($event)" [value]="isRecurring">
+                        (click)="checkIfRecurrs($event)" [value]="isRecurring" formControlName="recurrs">
                     <label class="custom-control-label" for="recurrs"></label>
                 </div>
             </div>
@@ -58,10 +58,15 @@
                 <label for="endTime">End Time</label>
                 <input type="time" class="form-control" id="endTime" formControlName="endTime" required>
             </div>
+            <div class="form-group col-md-12">
+                <label for="place">Location</label>
+                <input type="text" class="form-control" id="place" formControlName="place" required>
+            </div>
         </div>
         <div class="text-right">
             <button mat-button cdkFocusInitial color="primary">Cancel</button>
-            <button mat-button cdkFocusInitial color="primary" type="submit" [disabled]=!newPostForm.valid>Submit</button>
+            <!-- <button mat-button cdkFocusInitial color="primary" type="submit" [disabled]=!newPostForm.valid>Submit</button> -->
+            <button mat-button cdkFocusInitial color="primary" type="submit">Submit</button>
         </div>
 
     </form>

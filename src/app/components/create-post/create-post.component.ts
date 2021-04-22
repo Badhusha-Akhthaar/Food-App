@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators,FormControl, NgForm} from '@angular/forms';
+
+import { MainService } from "../../services/main.service";
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
@@ -17,7 +19,7 @@ export class CreatePostComponent implements OnInit {
     startTime: new FormControl(''),
     endTime: new FormControl(''),
     providingDate: new FormControl(''),
-
+    place: new FormControl(''),
     //Recurring Specific
     recurrs: new FormControl(''),
     fromDate: new FormControl(''),
@@ -25,7 +27,7 @@ export class CreatePostComponent implements OnInit {
   });
 
 
-  constructor() {}
+  constructor(public mainService: MainService) {}
 
   ngOnInit() {
   }
@@ -34,7 +36,7 @@ export class CreatePostComponent implements OnInit {
     this.isRecurring = ( this.isRecurring === true) ? false : true;
     console.log((<HTMLInputElement>event.target).value);
   }
-  onSubmitNewPost(f){
-    console.log(f);
+  onSubmitNewPost(formData: NgForm){
+    this.mainService.postFormData(formData.value);
   }
 }

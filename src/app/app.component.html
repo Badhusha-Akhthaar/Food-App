@@ -65,11 +65,18 @@
 
     </div>
     <div class="col-md-6">
-      <app-news-feed></app-news-feed>
+      <div class="row">
+        <div class="col-md-12">
+          <app-news-feed *ngFor="let _singlePost of allPosts" [newPost]="_singlePost"></app-news-feed>
+        </div>
+      </div>
+
     </div>
     <div class="col-md-3">
       <div class="new_button_wrapper"><button mat-raised-button color="accent" class="new_button"
-          (click)="openDialog()"><mat-icon class=" new_icon">add_circle_outline</mat-icon>New Post</button></div>
+          (click)="openDialog()">
+          <mat-icon class=" new_icon">add_circle_outline</mat-icon>New Post
+        </button></div>
     </div>
   </div>
 </div>
