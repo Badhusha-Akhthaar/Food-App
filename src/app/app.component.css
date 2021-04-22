@@ -1,0 +1,21 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.active-list-item {
+  color: #FFBF00 !important; /* Note: You could also use a custom theme */
+}
+.example-tab-icon {
+  margin-right: 8px;
+}
+.new_button{
+  width: inherit;
+}
+
+.new_button_wrapper{
+  align-items: stretch !important;
+  width: inherit;
+}

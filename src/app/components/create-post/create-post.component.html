@@ -1,0 +1,68 @@
+<h2 mat-dialog-title>New Post</h2>
+<div mat-dialog-content>
+    <form [formGroup]="newPostForm" (ngSubmit)="onSubmitNewPost(f)" #f>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="postType">Post Type</label>
+                <select id="postType" class="form-control" formControlName="postType">
+                    <option selected>New Cater</option>
+                    <option>New Request</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="postTitle">Title</label>
+                <input type="text" class="form-control" id="postTitle" formControlName="postTitle" required>
+            </div>
+            <div class="form-group col-md-12">
+                <label for="postDescription">Description</label>
+                <textarea class="form-control" id="postDescription" formControlName="postDescription"
+                    required></textarea>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="foodType">Food Type</label>
+                <select id="foodType" class="form-control" formControlName="foodType">
+                    <option selected>Veg</option>
+                    <option>Non-Veg</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="servings">Servings</label>
+                <input type="number" class="form-control" id="servings" formControlName="servings" required>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="recurrs" required
+                        (click)="checkIfRecurrs($event)" [value]="isRecurring">
+                    <label class="custom-control-label" for="recurrs"></label>
+                </div>
+            </div>
+            <!-- Non-Recurring scenario -->
+            <div class="form-group col-md-6" *ngIf="!isRecurring">
+                <label for="providingDate">Date</label>
+                <input type="date" class="form-control" id="providingDate" formControlName="providingDate" required>
+            </div>
+            <!-- Recurring scenario -->
+            <div class="form-group col-md-6" *ngIf="isRecurring">
+                <label for="fromDate">Start Date</label>
+                <input type="date" class="form-control" id="fromDate" formControlName="fromDate" required>
+            </div>
+            <div class="form-group col-md-6" *ngIf="isRecurring">
+                <label for="toDate">End Date</label>
+                <input type="date" class="form-control" id="toDate" formControlName="toDate" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="startTime">Start Time</label>
+                <input type="time" class="form-control" id="startTime" formControlName="startTime" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="endTime">End Time</label>
+                <input type="time" class="form-control" id="endTime" formControlName="endTime" required>
+            </div>
+        </div>
+        <div class="text-right">
+            <button mat-button cdkFocusInitial color="primary">Cancel</button>
+            <button mat-button cdkFocusInitial color="primary" type="submit" [disabled]=!newPostForm.valid>Submit</button>
+        </div>
+
+    </form>
+</div>
