@@ -17,12 +17,22 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MatDialogModule } from "@angular/material/dialog";
 import {MatStepperModule} from '@angular/material/stepper';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatMenuModule} from '@angular/material/menu';
 
-import { NewsFeedComponent } from './components/news-feed/news-feed.component';
-import { CreatePostComponent } from './components/create-post/create-post.component';
+import { NewsFeedComponent } from './components/main-page/news-feed/news-feed.component';
 import { MainService } from './services/main.service';
 import { DateFormatterPipe } from './pipes/date-formatter.pipe';
-
+import { NewPostComponent } from "./components/main-page/new-post/new-post.component";
+import { LoginPageComponent } from './components/login-wrapper/login-page/login-page.component';
+import { Router, RouterModule, Routes } from '@angular/router';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { LoginWrapperComponent } from './components/login-wrapper/login-wrapper.component';
+const appRoutes: Routes = [
+  { path:'',component: LoginWrapperComponent },
+  { path:'login',component: LoginWrapperComponent },
+  { path: 'feed',component: MainPageComponent}
+];
 const modules = [
   BrowserModule,
   AppRoutingModule,
@@ -38,14 +48,17 @@ const modules = [
   MatDialogModule,
   MatStepperModule,
   MatFormFieldModule,
+  MatExpansionModule,
+  MatMenuModule,
   FormsModule,
-  ReactiveFormsModule 
+  ReactiveFormsModule
+  
 ];
 
 @NgModule({
-  declarations: [AppComponent, NewsFeedComponent, CreatePostComponent, DateFormatterPipe],
+  declarations: [AppComponent, NewsFeedComponent, DateFormatterPipe, NewPostComponent, LoginPageComponent, MainPageComponent, LoginWrapperComponent],
   imports: [
-    ...modules
+    ...modules,RouterModule.forRoot(appRoutes)
   ],
   exports: [
     ...modules

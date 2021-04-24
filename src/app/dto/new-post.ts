@@ -1,7 +1,6 @@
 export interface NewPost {
     id: string,
     postType: string,
-    postTitle: string,
     postDescription: string,
     foodType: string,
     servings: number,
@@ -12,5 +11,6 @@ export interface NewPost {
     fromDate: any,
     toDate: any,
     place: string
-    postedOn: number
+    postedOn: number,
+    postedBy: string
 }

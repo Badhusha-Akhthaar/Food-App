@@ -1,7 +1,7 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { NewPost } from 'src/app/dto/new-post';
-import { MainService } from "../../services/main.service";
+import { MainService } from "../../../services/main.service";
 @Component({
   selector: 'app-news-feed',
   templateUrl: './news-feed.component.html',

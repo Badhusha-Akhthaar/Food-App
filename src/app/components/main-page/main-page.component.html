@@ -1,0 +1,61 @@
+<div class="row" style="padding-top: 35px;">
+    <div class="col-md-12 d-block d-sm-none">
+      <mat-tab-group mat-align-tabs="center">
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">article</mat-icon>
+            News Feed
+          </ng-template>
+          Content 1
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">favorite</mat-icon>
+            Favorites
+          </ng-template>
+          Content 2
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">groups</mat-icon>
+            Community
+          </ng-template>
+          Content 3
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <!--Divider-->
+    <div class="col-md-3 d-none d-sm-block">
+      <mat-nav-list>
+        <mat-list-item class="active-list-item">
+          <a matLine>News Feed</a>
+          <mat-icon>article</mat-icon>
+        </mat-list-item>
+        <mat-list-item>
+          <a matLine>Favorites</a>
+          <mat-icon>favorite</mat-icon>
+        </mat-list-item>
+        <mat-list-item>
+          <a matLine>Community</a>
+          <mat-icon>groups</mat-icon>
+        </mat-list-item>
+        <mat-list-item>
+          <a matLine>My Caters</a>
+          <mat-icon>dashboard_customize</mat-icon>
+        </mat-list-item>
+        <mat-list-item>
+          <a matLine>My Requests</a>
+          <mat-icon>view_day</mat-icon>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <app-new-post (postCreated)="onPostCreated()"></app-new-post>
+          <div style="height: 20px;"></div>
+          <app-news-feed *ngFor="let _singlePost of allPosts" [newPost]="_singlePost"></app-news-feed>
+        </div>
+      </div>
+    </div>
+  </div>

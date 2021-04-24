@@ -1,0 +1,26 @@
+<div style="padding-top: 40px;">
+    <mat-card class="newsfeed-card">
+        <mat-card-header>
+          <mat-card-title>Login</mat-card-title>    
+          <span class="example-spacer"></span>
+        </mat-card-header>
+        <div style="padding-bottom: 20px;"></div>
+        <mat-card-content>
+          <form (ngSubmit)="onLogin(f)" #f="ngForm" [formGroup]="loginForm">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="userName">User Name</label>
+                    <input type="text" class="form-control" id="userName" required formControlName="userName">
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" required formControlName="password">
+                </div>
+            </div>
+            <div class="text-right">
+                <button mat-button cdkFocusInitial color="primary">Login</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+</div>

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 
 import { MatDialog } from "@angular/material/dialog";
 
-import { CreatePostComponent } from "./components/create-post/create-post.component";
+import { NewPostComponent } from "./components/main-page/new-post/new-post.component";
 import { NewPost } from "./dto/new-post";
 import { MainService } from "./services/main.service";
 
@@ -32,11 +32,11 @@ export class AppComponent implements OnInit {
   onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 12;
   }
+  onPostCreated(){
+    console.log("Post Created");
+  }
 
-  openDialog(){
-    const dialogRef = this.dialog.open(CreatePostComponent);
-    dialogRef.afterClosed().subscribe((result)=>{
-      console.log("Closed");
-    });
+  onLogout(){
+    localStorage.removeItem("food-app-username");
   }
 }

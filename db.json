@@ -7,6 +7,7 @@
       "bio": "Lazy Developer",
       "phoneNumber": "9750647371",
       "joinedOn": 1618592400000,
+      "password": "12345678",
       "avatar": "https://www.pinclipart.com/picdir/middle/61-616591_businessperson-company-computer-icons-avatar-faceless-male-avatar.png"
     },
     {
@@ -16,40 +17,26 @@
       "bio": "",
       "phoneNumber": "9976534493",
       "joinedOn": 1618592400000,
+      "password": "12345678",
       "avatar": "https://www.pinclipart.com/picdir/middle/61-616591_businessperson-company-computer-icons-avatar-faceless-male-avatar.png"
     }
   ],
   "posts": [
     {
       "postType": "New Cater",
-      "postTitle": "Ojls",
-      "postDescription": "lsdjflsdjlk",
+      "postDescription": "Food available for 10 people",
       "foodType": "Veg",
-      "servings": 2,
-      "startTime": "11:58",
-      "endTime": "11:57",
-      "providingDate": "2021-04-17",
-      "recurrs": "",
-      "fromDate": "",
-      "toDate": "",
-      "id": "2f92503c-6b49-40bf-b9d9-52f2e95f8a0b",
-      "postedOn": 1619086262575
-    },
-    {
-      "postType": "New Cater",
-      "postTitle": "sldjfs",
-      "postDescription": "sdfsf",
-      "foodType": "Veg",
-      "servings": 2,
-      "startTime": "18:12",
-      "endTime": "18:12",
+      "servings": 1,
+      "startTime": "17:56",
+      "endTime": "18:56",
       "providingDate": "2021-04-29",
       "place": "Madurai",
       "recurrs": "",
       "fromDate": "",
       "toDate": "",
-      "id": "222a5def-c4ce-4917-8f15-783603aaac98",
-      "postedOn": 1619095151200
+      "id": "3d328000-638c-4089-8a3c-2997bb0efbbc",
+      "postedOn": 1619249189497,
+      "postedBy": "Badhusha"
     }
   ]
 }

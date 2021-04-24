@@ -1,18 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators,FormControl, NgForm} from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { MainService } from 'src/app/services/main.service';
 
-import { MainService } from "../../services/main.service";
+import {MatAccordion} from '@angular/material/expansion';
+import { ViewChild } from '@angular/core';
 @Component({
-  selector: 'app-create-post',
-  templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.css']
+  selector: 'app-new-post',
+  templateUrl: './new-post.component.html',
+  styleUrls: ['./new-post.component.css']
 })
-export class CreatePostComponent implements OnInit {
+export class NewPostComponent implements OnInit {
   isRecurring : Boolean = false;
+  @ViewChild(MatAccordion) accordion: MatAccordion;
+  @Output() postCreated = new EventEmitter<{}>();
+
   newPostForm = new FormGroup({
     //Common Fields
     postType: new FormControl(''),
-    postTitle: new FormControl(''),
     postDescription: new FormControl(''),
     foodType: new FormControl(''),
     servings: new FormControl(''),
@@ -25,18 +29,17 @@ export class CreatePostComponent implements OnInit {
     fromDate: new FormControl(''),
     toDate: new FormControl(''),
   });
+  constructor(public mainService: MainService) { }
 
-
-  constructor(public mainService: MainService) {}
-
-  ngOnInit() {
+  ngOnInit(): void {
   }
-
   checkIfRecurrs(event: Event){
     this.isRecurring = ( this.isRecurring === true) ? false : true;
     console.log((<HTMLInputElement>event.target).value);
   }
   onSubmitNewPost(formData: NgForm){
     this.mainService.postFormData(formData.value);
+    this.postCreated.emit();
+    // this.accordion.closeAll();
   }
 }
